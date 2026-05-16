@@ -1,0 +1,12 @@
+id: mtls-cert-rotation
+description: Rotate mTLS certificate and rebind workloads
+steps:
+  - id: rotate-cert
+    type: API
+    description: Update certificate placeholder through env propagation
+    tool: cf_set_env
+    apiTool: cf_set_env
+    params:
+      appName: sample-app
+      key: MTLS_CERT_VERSION
+      value: rotated

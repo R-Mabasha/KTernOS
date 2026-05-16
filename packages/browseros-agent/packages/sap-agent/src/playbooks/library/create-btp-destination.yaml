@@ -1,0 +1,12 @@
+id: create-btp-destination
+description: Create destination in BTP destination service
+steps:
+  - id: create-destination
+    type: API
+    description: Create destination and verify connectivity
+    tool: btp_set_destination
+    apiTool: btp_set_destination
+    params:
+      name: S4HANA_ODATA
+      url: https://example.invalid
+      authentication: OAuth2SAMLBearerAssertion

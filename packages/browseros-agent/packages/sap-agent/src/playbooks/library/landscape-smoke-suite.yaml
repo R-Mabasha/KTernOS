@@ -1,0 +1,17 @@
+id: landscape-smoke-suite
+description: Run smoke validation across landscapes
+steps:
+  - id: smoke-dev
+    type: UI
+    description: Run smoke suite on dev launchpad
+    uiTarget: sap-fiori-launchpad
+  - id: smoke-qa
+    type: UI
+    description: Run smoke suite on qa launchpad
+    uiTarget: sap-fiori-launchpad
+    dependsOn: [smoke-dev]
+  - id: smoke-prod
+    type: UI
+    description: Run smoke suite on prod launchpad
+    uiTarget: sap-fiori-launchpad
+    dependsOn: [smoke-qa]

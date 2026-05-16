@@ -1,0 +1,16 @@
+id: assign-fiori-catalog
+description: Assign catalog to business role
+steps:
+  - id: api-assign
+    type: API
+    description: Assign Fiori catalog using Launchpad API
+    tool: launchpad_assign_catalog
+    apiTool: launchpad_assign_catalog
+    params:
+      roleId: ZROLE_SALES
+      catalogId: ZCATALOG_SALES
+  - id: ui-verify
+    type: UI
+    description: Verify catalog assignment in Launchpad UI
+    uiTarget: sap-launchpad-designer
+    dependsOn: [api-assign]

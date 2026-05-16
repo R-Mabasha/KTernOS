@@ -1,0 +1,31 @@
+id: deploy-btp-app
+description: Deploy BTP app to CF space
+steps:
+  - id: deploy
+    type: API
+    description: Deploy MTA archive to CF dev space
+    tool: cf_deploy_mta
+    apiTool: cf_deploy_mta
+    params:
+      appName: sample-app
+      space: dev
+      mtaPath: mta_archives/sample-app.mtar
+  - id: bind-service
+    type: API
+    description: Bind service instance to deployed app
+    tool: cf_bind_service
+    apiTool: cf_bind_service
+    dependsOn: [deploy]
+    params:
+      appName: sample-app
+      serviceInstance: destination-service
+  - id: set-destination
+    type: API
+    description: Configure destination after deployment
+    tool: btp_set_destination
+    apiTool: btp_set_destination
+    dependsOn: [bind-service]
+    params:
+      name: SAMPLE_DEST
+      url: https://example.invalid
+      authentication: OAuth2SAMLBearerAssertion

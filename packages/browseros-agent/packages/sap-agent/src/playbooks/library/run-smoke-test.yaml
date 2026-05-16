@@ -1,0 +1,7 @@
+id: run-smoke-test
+description: Run launchpad smoke validation
+steps:
+  - id: launchpad
+    type: UI
+    description: Open Fiori app list and verify application loads
+    uiTarget: sap-fiori-launchpad

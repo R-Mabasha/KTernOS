@@ -1,0 +1,21 @@
+id: create-service-instance
+description: Create CF service instance and bind it
+steps:
+  - id: create-instance
+    type: API
+    description: Create CF service instance
+    tool: cf_create_service_instance
+    apiTool: cf_create_service_instance
+    params:
+      name: xsuaa-go-live
+      serviceOffering: xsuaa
+      plan: application
+  - id: bind-instance
+    type: API
+    description: Bind created service instance to application
+    tool: cf_bind_service
+    apiTool: cf_bind_service
+    dependsOn: [create-instance]
+    params:
+      appName: sample-app
+      serviceInstance: xsuaa-go-live

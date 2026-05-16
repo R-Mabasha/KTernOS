@@ -1,0 +1,11 @@
+id: assign-xsuaa-role
+description: Assign role collection to user
+steps:
+  - id: role-assign
+    type: API
+    description: Assign XSUAA role collection to user
+    tool: xsuaa_assign_role
+    apiTool: xsuaa_assign_role
+    params:
+      userId: consultant@example.com
+      roleCollection: SAP_GO_LIVE

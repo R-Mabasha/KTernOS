@@ -1,0 +1,7 @@
+id: check-idoc-errors
+description: Review IDoc errors in WE02
+steps:
+  - id: we02
+    type: UI
+    description: Navigate WE02 and filter error status records
+    uiTarget: sap-idoc-monitor

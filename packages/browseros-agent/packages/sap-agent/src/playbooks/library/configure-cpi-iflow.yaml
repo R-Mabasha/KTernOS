@@ -1,0 +1,7 @@
+id: configure-cpi-iflow
+description: Configure CPI iFlow and deploy
+steps:
+  - id: cpi-open
+    type: UI
+    description: Open CPI package and target iFlow
+    uiTarget: sap-cpi
